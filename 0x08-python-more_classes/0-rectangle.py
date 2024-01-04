@@ -1,9 +1,7 @@
 #!/usr/bin/python3
+"""Empty class Rectangle that defines a rectangle"""
 
 
 class Rectangle:
+    """Empty class Rectangle"""
     pass
-
-my_rectangle = Rectangle()
-print(type(my_rectangle))
-print(my_rectangle.__dict__)
