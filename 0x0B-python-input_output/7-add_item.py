@@ -5,23 +5,23 @@
 
 """
 
-
-import json
 import sys
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
+import json
+from 5-save_to_json_file import save_to_json_file
+from 6-load_from_json_file import load_from_json_file
 
-arg = sys.argv[1:]
-file_name = "add_item.json"
+args = sys.argv[1:]
+filename = "add_item.json"
 
 try:
-    python_object = load_from_json_file(file_name)
+    # Load existing list from the file
+    my_list = load_from_json_file(filename)
 except FileNotFoundError:
-    save_to_json_file([], file_name)
+    # If the file doesn't exist, create an empty list
+    my_list = []
 
-python_object = load_from_json_file(file_name)
-if type(python_object) is list:
-    for item in arg:
-        python_object.append(item)
+# Add the arguments to the list
+my_list.extend(args)
 
-save_to_json_file(python_object, file_name)
+# Save the updated list to the file
+save_to_json_file(my_list, filename)
