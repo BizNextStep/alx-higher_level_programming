@@ -10,7 +10,7 @@ def get_request_id(url):
     req = urllib.request.Request(url)
     response = urllib.request.urlopen(req)
     headers = response.info()
-
+    
     # Check if the 'X-Request-Id' header is present
     if 'X-Request-Id' in headers:
         request_id = headers['X-Request-Id']
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python script.py <URL>")
         sys.exit(1)
-
+    
     url = sys.argv[1]
     get_request_id(url)
 
